@@ -50,7 +50,7 @@ export default function Hero() {
             <img
               src="/photo.jpg"
               alt="Portrait of Shakeel Miyya"
-              className="w-11 h-11 rounded-full object-cover border border-line flex-shrink-0"
+              className="w-11 h-11 rounded-full object-cover object-top border border-line flex-shrink-0"
             />
             <p className="text-sm text-gray-500">
               <span className="text-gray-300">Shakeel Miyya</span> · Designed &amp; built for the challenge above
