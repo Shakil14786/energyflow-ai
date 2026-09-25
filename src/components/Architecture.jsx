@@ -1,13 +1,22 @@
 import useReveal from '../hooks/useReveal.js'
 
 const NODES = [
-  { y: 30, label: 'Business user', sub: 'Ops, planning & finance teams' },
-  { y: 110, label: 'Web dashboard', sub: 'React front end' },
-  { y: 190, label: 'API layer', sub: 'Auth, rate limiting, routing' },
-  { y: 270, label: 'AI recommendation engine', sub: 'Route, risk & demand models' },
-  { y: 350, label: 'Database', sub: 'Shipments, routes, signals' },
-  { y: 430, label: 'Notifications', sub: 'Alerts to the right team' },
-  { y: 510, label: 'Logistics partners', sub: 'Carriers & port systems' },
+  { y: 20, label: 'Business user', sub: 'Ops, planning & finance teams' },
+  { y: 132, label: 'Web dashboard', sub: 'React front end' },
+  { y: 244, label: 'API layer', sub: 'Auth, rate limiting, routing' },
+  { y: 356, label: 'AI recommendation engine', sub: 'Route, risk & demand models' },
+  { y: 468, label: 'Database', sub: 'Shipments, routes, signals' },
+  { y: 580, label: 'Notifications', sub: 'Alerts to the right team' },
+  { y: 692, label: 'Logistics partners', sub: 'Carriers & port systems' },
+]
+
+const CONNECTION_LABELS = [
+  'Request',
+  'Auth & route',
+  'Risk query',
+  'Read / write',
+  'Trigger alert',
+  'Dispatch',
 ]
 
 export default function Architecture() {
@@ -31,7 +40,7 @@ export default function Architecture() {
         </div>
 
         <div className="glass rounded-2xl p-6 overflow-x-auto">
-          <svg viewBox="0 0 320 560" className="w-full h-auto min-w-[260px]" role="img" aria-label="Architecture diagram showing data flowing from the business user through the web dashboard, API layer, AI recommendation engine, database, notifications, and out to logistics partners">
+          <svg viewBox="0 0 320 750" className="w-full h-auto min-w-[260px]" role="img" aria-label="Architecture diagram showing data flowing from the business user through the web dashboard, API layer, AI recommendation engine, database, notifications, and out to logistics partners">
             <defs>
               <linearGradient id="nodeGrad" x1="0" y1="0" x2="1" y2="0">
                 <stop offset="0%" stopColor="#141B3E" />
@@ -40,25 +49,36 @@ export default function Architecture() {
             </defs>
 
             {NODES.slice(0, -1).map((n, i) => (
-              <line
-                key={i}
-                x1={cx}
-                y1={n.y + 24}
-                x2={cx}
-                y2={NODES[i + 1].y}
-                stroke="#3B82F6"
-                strokeWidth="2"
-                strokeDasharray="5 7"
-                className="animate-flow"
-                pathLength="60"
-                opacity="0.7"
-              />
+              <g key={i}>
+                <line
+                  x1={cx}
+                  y1={n.y + 24}
+                  x2={cx}
+                  y2={NODES[i + 1].y}
+                  stroke="#3B82F6"
+                  strokeWidth="2"
+                  strokeDasharray="5 7"
+                  className="animate-flow"
+                  pathLength="60"
+                  opacity="0.7"
+                />
+                <text
+                  x={cx + 14}
+                  y={(n.y + 24 + NODES[i + 1].y) / 2 + 4}
+                  fill="#67E8F9"
+                  fontSize="9.5"
+                  fontFamily="IBM Plex Mono, monospace"
+                  opacity="0.85"
+                >
+                  {CONNECTION_LABELS[i]}
+                </text>
+              </g>
             ))}
 
             {NODES.map((n) => (
               <g key={n.label}>
                 <rect x={cx - 140} y={n.y} width="280" height="52" rx="12" fill="url(#nodeGrad)" stroke="#1B2242" />
-                <circle cx={cx - 122} cy={n.y + 26} r="4" fill="#22D3EE" />
+                <circle cx={cx - 122} cy={n.y + 26} r="4" fill="#22D3EE" className="animate-nodeGlow" />
                 <text x={cx - 105} y={n.y + 22} fill="#F8FAFC" fontSize="13" fontFamily="Inter, sans-serif" fontWeight="600">
                   {n.label}
                 </text>

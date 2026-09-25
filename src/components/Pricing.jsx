@@ -47,8 +47,10 @@ export default function Pricing() {
           {PLANS.map((plan) => (
             <div
               key={plan.name}
-              className={`rounded-2xl p-7 flex flex-col ${
-                plan.highlighted ? 'glass border-primary/50 shadow-[0_0_0_1px_rgba(59,130,246,0.35)]' : 'border border-line'
+              className={`rounded-2xl p-7 flex flex-col transition-all duration-300 hover:-translate-y-1 ${
+                plan.highlighted
+                  ? 'glass border-primary/50 shadow-[0_0_0_1px_rgba(59,130,246,0.35)] hover:shadow-[0_0_0_1px_rgba(59,130,246,0.5),0_25px_50px_-20px_rgba(34,211,238,0.4)]'
+                  : 'border border-line hover:border-accent/30 hover:shadow-[0_20px_45px_-22px_rgba(34,211,238,0.25)]'
               }`}
             >
               <h3 className="font-display font-semibold text-lg mb-1">{plan.name}</h3>
@@ -66,8 +68,8 @@ export default function Pricing() {
                 ))}
               </ul>
               <button
-                className={`w-full text-sm font-medium rounded-lg py-2.5 transition-colors ${
-                  plan.highlighted ? 'bg-primary hover:bg-primary-dim' : 'border border-line hover:bg-white/5'
+                className={`w-full text-sm font-medium rounded-lg py-2.5 transition-all duration-300 active:scale-[0.98] ${
+                  plan.highlighted ? 'bg-primary hover:bg-primary-dim hover:shadow-[0_10px_30px_-10px_rgba(59,130,246,0.6)]' : 'border border-line hover:bg-white/5 hover:border-accent/30'
                 }`}
               >
                 Talk to us

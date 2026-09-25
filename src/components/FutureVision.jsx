@@ -22,7 +22,7 @@ export default function FutureVision() {
 
         <div ref={ref} data-reveal-group className="grid sm:grid-cols-3 gap-5">
           {IDEAS.map(({ icon: Icon, title, desc }) => (
-            <div key={title} className="rounded-2xl border border-line p-7 hover:border-accent/40 transition-colors">
+            <div key={title} className="rounded-2xl border border-line p-7 hover:border-accent/40 hover:-translate-y-1 hover:shadow-[0_20px_45px_-22px_rgba(34,211,238,0.3)] transition-all duration-300">
               <Icon className="w-5 h-5 text-accent mb-4" aria-hidden="true" />
               <h3 className="font-medium mb-2">{title}</h3>
               <p className="text-sm text-gray-400 leading-relaxed">{desc}</p>

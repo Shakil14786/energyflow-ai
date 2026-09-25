@@ -8,7 +8,8 @@ export default function HeroDashboardMockup() {
       role="img"
       aria-label="Preview of the EnergyFlow AI dashboard showing shipment risk and route comparison"
     >
-      <div className="absolute -inset-6 bg-gradient-to-tr from-primary/20 via-transparent to-accent/20 rounded-[2rem] blur-2xl" aria-hidden="true" />
+      <div className="absolute -inset-6 bg-gradient-to-tr from-primary/20 via-transparent to-accent/20 rounded-[2rem] blur-2xl animate-glowPulse" aria-hidden="true" />
+      <div className="absolute -inset-10 bg-gradient-to-br from-accent/10 via-transparent to-primary/10 rounded-[2.5rem] blur-3xl animate-drift" aria-hidden="true" />
 
       <div className="relative glass rounded-2xl p-5 shadow-2xl animate-drift">
         <div className="flex items-center justify-between mb-5">

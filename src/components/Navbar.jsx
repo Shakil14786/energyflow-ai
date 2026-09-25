@@ -52,7 +52,7 @@ export default function Navbar() {
           </a>
           <a
             href="#solution"
-            className="text-sm font-medium px-4 py-2 rounded-lg bg-white text-base hover:bg-gray-200 transition-colors"
+            className="text-sm font-medium px-4 py-2 rounded-lg bg-white text-base hover:bg-gray-200 hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] transition-all duration-300"
           >
             Explore the Prototype
           </a>

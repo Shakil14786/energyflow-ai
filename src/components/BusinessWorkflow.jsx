@@ -39,7 +39,7 @@ export default function BusinessWorkflow() {
 
         <div ref={ref} data-reveal-group className="grid sm:grid-cols-2 gap-5">
           {TEAMS.map(({ icon: Icon, title, desc }) => (
-            <div key={title} className="glass rounded-2xl p-7">
+            <div key={title} className="glass rounded-2xl p-7 transition-all duration-300 hover:-translate-y-1 hover:border-accent/30 hover:shadow-[0_20px_45px_-22px_rgba(34,211,238,0.3)]">
               <Icon className="w-5 h-5 text-accent mb-4" aria-hidden="true" />
               <h3 className="font-display text-lg font-semibold mb-2">{title}</h3>
               <p className="text-sm text-gray-400 leading-relaxed">{desc}</p>
